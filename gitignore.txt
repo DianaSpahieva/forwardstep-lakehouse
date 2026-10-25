@@ -2,10 +2,9 @@
 # ForwardStep .gitignore
 # ============================================================================
 
-# Git, VsCode and DataBricks files
+# Git and VsCode files
 .vscode/
 .devcontainer/
-.databricks/
 
 # ============================================================================
 # Node.js & Package Managers
