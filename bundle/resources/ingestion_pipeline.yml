@@ -1,0 +1,20 @@
+resources:
+  pipelines:
+    forwardstep_ingestion_pipeline:
+      name: forwardstep-ingestion-pipeline
+      serverless: true
+      allow_duplicate_names: true
+      tags:
+        environment: ${bundle.target}
+ 
+      root_path: ${workspace.file_path}/pipelines/ingestion_pipeline
+ 
+      catalog: ${var.forwardstep_catalog}
+      schema: forwardstep
+ 
+      configuration:
+        forwardstep.catalog: ${var.forwardstep_catalog}
+ 
+      libraries:
+        - glob:
+            include: ../../pipelines/ingestion_pipeline/transformations/**

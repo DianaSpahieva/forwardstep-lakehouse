@@ -1,0 +1,11 @@
+resources:
+  dashboards:
+    forwardstep_dq_dashboard:
+      display_name: "ForwardStep DQ Dashboard"
+      
+      file_path: ../../monitoring/Data Quality Monitoring.lvdash.json
+
+      warehouse_id: ${var.forwardstep_warehouse_id}
+
+      dataset_catalog: ${var.forwardstep_catalog}
+      dataset_schema: forwardstep

@@ -1,0 +1,58 @@
+bundle:
+  name: forwardstep-lakehouse
+
+include:
+  - resources/ingestion_pipeline.yml
+  - resources/transformation_pipeline.yml
+  - resources/orchestration_job.yml
+  - resources/dq_dashboard.yml
+  - resources/environment_bootstrap_job.yml
+
+
+sync:
+  paths:
+    - ../pipelines
+    - ../jobs
+    - ../setup
+    - ../monitoring/dq_dashboard_setup.py
+
+
+variables:
+  forwardstep_catalog:
+    description: Unity Catalog catalog this target reads/writes — same
+      pipeline code, different catalog injected per environment.
+    default: dev
+  
+  forwardstep_warehouse_id:
+    description: SQL warehouse ID the DQ dashboard queries run against.
+      No sensible default — set per target below.
+    default: 29a928e6c6e3843a
+
+targets:
+  dev:
+    default: true
+    workspace: 
+      host: https://dbc-40a98b28-eea6.cloud.databricks.com/
+
+  uat:
+    workspace:
+      host: https://dbc-40a98b28-eea6.cloud.databricks.com/
+    variables:
+      forwardstep_catalog: uat
+
+  prod:
+    workspace:
+      host: https://<PROD-WORKSPACE-HOST>.cloud.databricks.com/
+    variables:
+      forwardstep_catalog: prod
+      forwardstep_warehouse_id: 123
+
+
+
+
+
+
+
+
+
+
