@@ -42,10 +42,10 @@ targets:
 
   prod:
     workspace:
-      host: https://<PROD-WORKSPACE-HOST>.cloud.databricks.com/
+      host: https://dbc-k6bb3bg7-5c43.cloud.databricks.com/
     variables:
       forwardstep_catalog: prod
-      forwardstep_warehouse_id: 123
+      forwardstep_warehouse_id: 1243662fsz4557t323
 
 
 
