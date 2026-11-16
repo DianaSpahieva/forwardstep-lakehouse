@@ -1,0 +1,9 @@
+# Synthetic source data generation
+Faker
+
+# Local Spark unit tests
+pyspark>=3.5
+pytest
+
+# Databricks integration and smoke tests
+databricks-sdk==0.67.0
